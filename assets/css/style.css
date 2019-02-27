@@ -19,7 +19,7 @@ body {
 .card-title {
     margin-top: -20px;
     margin-left: -15px;
-    position: fixed;
+    position: absolute;
     font-size: medium;
 }
 
