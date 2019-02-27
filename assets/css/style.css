@@ -1,0 +1,36 @@
+body {
+    background-image: url("../images/starwarsbg.jpg");
+    color: darkslategray;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.row {
+    margin-left: 20px;
+}
+
+.card {
+    height: 150px;
+    width: 150px;
+    padding: 30px;
+    background: white;
+    border: 1px solid darkslategrey;
+}
+
+.card-title {
+    margin-top: -20px;
+    margin-left: -15px;
+    position: fixed;
+    font-size: medium;
+}
+
+.card-text {
+    margin-top: 105px;
+    margin-left: -15px;
+    font-size: medium;
+}
+
+.container {
+    width: 800px;
+    margin-left: 0px;
+}
+
