@@ -2,6 +2,8 @@ $(document).ready(function () {
     // creating variables
     var isCharacterChosen = false;
     var isEnemyChosen = false;
+    var chosenCharacter = "";
+    var chosenEnemy = "";
 
     //hiding buttons
     $( "#attack" ).hide();
@@ -30,21 +32,22 @@ $(document).ready(function () {
     }
 
     // $("#lukeSkywalker").click(function () {
-    //     alert("hi");
+    //     alert(("lukeSkywalker".name));
     // });
 
     // when user selects their character
 
         $(".character").click(function () {
             if (isCharacterChosen == false) { 
-                $(this).appendTo("#yourcharacter");
-                var chosenCharacter = $(this);
+                chosenCharacter = $(".character").index(this);
+                $(this).appendTo("#yourcharacter").attr('data-name');
                 $("#characters").appendTo("#enemies");
                 isCharacterChosen = true;
 
-            // when user selects their enemy
+    // when user selects their enemy
 
             } else {
+                chosenEnemy = $(this).index();
                 $(this).appendTo("#fightsection");
                 $("#attack").show();
                 isEnemyChosen = true;
@@ -52,14 +55,11 @@ $(document).ready(function () {
 
         });
 
-    
+    //when user selects the attack button
 
+        $("#attack").click(function () {
+            $("#text").text("You have attacked " + characters[chosenCharacter].name + " for " + characters[chosenCharacter].attack + " attack points.");
+        });
 
-
-   
-
-
-
-    // when user selects their enemy
 
 });
