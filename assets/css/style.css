@@ -1,32 +1,46 @@
 body {
     background-image: url("../images/starwarsbg.jpg");
+    background-size: cover;
     color: darkslategray;
     font-family: 'Courier New', Courier, monospace;
+    color: white;
 }
 
 .row {
     margin-left: 20px;
 }
 
+/* character card styles */
 .card {
     height: 150px;
     width: 150px;
     padding: 30px;
-    background: white;
-    border: 1px solid darkslategrey;
+    background: #60d61b;
+    border: 1px solid darkslategray;
+    margin-bottom: 10px;
 }
 
+/* character name styles */
 .card-title {
     margin-top: -20px;
     margin-left: -15px;
     position: absolute;
     font-size: medium;
+    color: white;
 }
 
+/* character health points styles */
 .card-text {
     margin-top: 105px;
     margin-left: -15px;
     font-size: medium;
+    color: white;
+    font-style: bold;
+}
+
+.card-img {
+    height: 230 px;
+    width: 230 px;
 }
 
 .container {
@@ -34,7 +48,6 @@ body {
     margin-left: 0px;
 }
 
-.btn {
-    margin-top: 10px;
+#characters:hover {
+    cursor: pointer;
 }
-
