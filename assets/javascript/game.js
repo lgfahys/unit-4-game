@@ -48,6 +48,8 @@ $(document).ready(function () {
                 $(".character").css('background', 'red');
                 // keeping selected characters background green
                 $(this).css('background', '#60d61b');
+                // making character unclickable
+                $(this).off("click");
 
     // when user selects their enemy
 
@@ -56,30 +58,36 @@ $(document).ready(function () {
                 $("#attack").show();
                 // appending the clicked character to #fightsection div
                 $(this).appendTo("#fightsection");
+                // making remaining characters unclickable
+                $(".character").off("click");
                 // creating a chosenEnemy variable & getting its index based on which character was clicked
                 chosenEnemy = characters.findIndex(x => x.id==event.target.offsetParent.attributes[1].nodeValue);
                 // setting is EnemyChosen to true
-                isEnemyChosen = true;
+                isEnemyChosen = true
             }
-
         });
+
 
     //when user clicks the attack button
         $("#attack").click(function () {
             clicks ++;
             if (clicks <= 1) {
                 characters[chosenCharacter].attack = characters[chosenCharacter].attack;
+                characters[chosenCharacter].healthPoints = characters[chosenCharacter].healthPoints - characters[chosenEnemy].counterAttack;
+                characters[chosenEnemy].healthPoints = characters[chosenEnemy].healthPoints - characters[chosenCharacter].attack;
             } else {
             // make chosenCharacter attack points go up by 6 each time 
             characters[chosenCharacter].attack = parseInt(characters[chosenCharacter].attack) + 6;
+            characters[chosenCharacter].healthPoints = characters[chosenCharacter].healthPoints - characters[chosenEnemy].counterAttack;
+            characters[chosenEnemy].healthPoints = characters[chosenEnemy].healthPoints - characters[chosenCharacter].attack;
             };
             // displaying text to notify user of your attack details in the #text div
             $("#text").text("You have attacked " + characters[chosenEnemy].name + " for " + (characters[chosenCharacter].attack) + " attack points");
             // displaying a second row of text to notify the user of enemy attack details in the #moretext div
             $("#moretext").text(characters[chosenEnemy].name + " has attacked you for " + characters[chosenEnemy].counterAttack + " attack points.");
             // subtracting health points from enemy and character on attack button click
-            alert((parseInt(characters[chosenCharacter].healthPoints) - parseInt(characters[chosenEnemy].counterAttack)));
-            parseInt(characters[chosenCharacter].healthPoints).append(parseInt(characters[chosenEnemy].healthPoints) - parseInt(characters[chosenCharacter].attack));
+            $("#yourcharacter").find(".healthpoints").text(characters[chosenCharacter].healthPoints - characters[chosenEnemy].counterAttack);
+            $("#fightsection").find(".healthpoints").text(characters[chosenEnemy].healthPoints - characters[chosenCharacter].attack);
         });
 
 });

@@ -1,9 +1,9 @@
 body {
     background-image: url("../images/starwarsbg.jpg");
     background-size: cover;
-    color: darkslategray;
+    color: black;
     font-family: 'Courier New', Courier, monospace;
-    color: white;
+    position: absolute;
 }
 
 .row {
@@ -16,7 +16,7 @@ body {
     width: 150px;
     padding: 30px;
     background: #60d61b;
-    border: 1px solid darkslategray;
+    border: 1px solid black;
     margin-bottom: 10px;
 }
 
@@ -50,4 +50,9 @@ body {
 
 #characters:hover {
     cursor: pointer;
+}
+
+.btn {
+    color: white;
+    background: black;
 }
