@@ -86,8 +86,8 @@ $(document).ready(function () {
             // displaying a second row of text to notify the user of enemy attack details in the #moretext div
             $("#moretext").text(characters[chosenEnemy].name + " has attacked you for " + characters[chosenEnemy].counterAttack + " attack points.");
             // subtracting health points from enemy and character on attack button click
-            $("#yourcharacter").find(".healthpoints").text(characters[chosenCharacter].healthPoints - characters[chosenEnemy].counterAttack);
-            $("#fightsection").find(".healthpoints").text(characters[chosenEnemy].healthPoints - characters[chosenCharacter].attack);
+            $("#yourcharacter").find(".healthpoints").text(characters[chosenCharacter].healthPoints);
+            $("#fightsection").find(".healthpoints").text(characters[chosenEnemy].healthPoints);
         });
 
 });
